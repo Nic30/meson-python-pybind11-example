@@ -10,7 +10,7 @@ py3.extension_module(
     '_mesonPythonPybind11Example',
     ['module.cpp'],
     include_directories: [mesonPythonPybind11Example_inc],
-    dependencies : [py3_dep, myLib_cpp_dep],
+    dependencies : [py3_dep, pybind11_dep, myLib_cpp_dep],
     install: true,
     cpp_args: [],
     subdir: 'mesonPythonPybind11Example/',

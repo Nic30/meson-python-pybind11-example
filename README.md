@@ -59,6 +59,9 @@ pip3 install -e . --no-build-isolation \
     -Csetup-args="-Db_coverage=true" \
     -Ccompile-args="--verbose" \
     -Cbuild-dir=build-dbg
+lcov --compat-libtool --directory . --capture --output-file coverage.info.raw --ignore-errors mismatch # collect coverage reports
+lcov --remove coverage.info.raw -o coverage.info '/usr/*' 'pybind11/*' # remove system includes and pybind11 from coverage
+genhtml coverage.info --output-directory coverage_out # generate coverage report html
 ```
 
 ### Obscurities
@@ -69,3 +72,4 @@ lcov/install/bin/lcov
 Can't locate lcovutil.pm in @INC (you may need to install the lcovutil module) (@INC contains: install/lib/lcov /Library/Perl/5.30/darwin-thread-multi-2level /Library/Perl/5.30 /Network/Library/Perl/5.30/darwin-thread-multi-2level /Network/Library/Perl/5.30 /Library/Perl/Updates/5.30.3 /System/Library/Perl/5.30/darwin-thread-multi-2level /System/Library/Perl/5.30 /System/Library/Perl/Extras/5.30/darwin-thread-multi-2level /System/Library/Perl/Extras/5.30) at lcov/install/bin/lcov line 77.
 BEGIN failed--compilation aborted at lcov/install/bin/lcov line 102.
 ```
+

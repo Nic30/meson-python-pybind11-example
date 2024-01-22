@@ -1,5 +1,3 @@
-
-
 myLib_lib = static_library('myLib',
     ['myLib.cpp'],
     cpp_args: [],

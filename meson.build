@@ -12,7 +12,10 @@ py3_mod = import('python')
 py3 = py3_mod.find_installation(required: true)
 
 py3_dep = py3.dependency()
-pybind11_inc = run_command(py3, '-c', 'from pybind11 import get_include;  print(get_include())', check: true).stdout().strip()
+pybind11_inc = run_command(py3, '-c',
+  # prefix must be stripped to allow venv inside of this repo, which is usefull for debug
+  'from pybind11 import get_include; from pathlib import Path;  print(get_include().removeprefix(Path().absolute().as_posix() + "/"))',
+  check: true).stdout().strip()
 pybind11_dep = declare_dependency(
   include_directories : pybind11_inc)
 
