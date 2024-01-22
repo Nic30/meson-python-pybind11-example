@@ -55,6 +55,8 @@ venv/
 *.gcda
 coverage.info
 coverage.info.raw
+.coverage
+coverage_out/
 
 # Ignore .vscode files
 .vscode/
