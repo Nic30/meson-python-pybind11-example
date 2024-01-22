@@ -1,0 +1,39 @@
+# This file specifies how python package should be build from source files.
+# https://meson-python.readthedocs.io/en/stable/usage/start.html
+
+[build-system]
+requires = [
+  "wheel", # python package distribution lib.
+  "meson>=1.1.0", # meson buildsystem
+  'meson-python>=0.12.1', # meson to pip adapter
+  "pybind11>=2.10.4", # c++ to Python binding
+  "ninja>=1.11.1", # build tool for meson to use
+]
+build-backend = 'mesonpy'
+
+
+[project]
+name = 'mesonPythonPybind11Example'
+dynamic = ['version',]
+description = 'An example project with meson-python and pybind11'
+readme = "README.md"
+license = { file = 'LICENSE' }
+keyword = ['example', 'meson', 'pybind']
+authors = [
+  { name = 'Michal Orsak', email = 'Nic30original@gmail.com' },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Utilities"
+]
+requires-python = '>=3.0'
+dependencies  = [
+]
+
+[project.urls]
+homepage = 'https://github.com/Nic30/meson-python-pybind11-example'
+repository = 'https://github.com/Nic30/meson-python-pybind11-example'
