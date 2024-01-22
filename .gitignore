@@ -31,13 +31,13 @@ MANIFEST
 # build folders
 Debug/
 build/
+build-dbg/
 target/
 dist/
 _skbuild/
 .eggs/
 *.egg-info
 venv/
-subprojects/antlr4-runtime
 
 
 # devel archives
