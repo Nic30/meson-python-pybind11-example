@@ -1,6 +1,5 @@
 
 
-mesonPythonPybind11Example_inc = include_directories('../include/')
 myLib_lib = static_library('myLib',
     ['myLib.cpp'],
     cpp_args: [],
